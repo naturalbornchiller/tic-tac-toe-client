@@ -1,1 +1,20 @@
 @import '~bootstrap/scss/bootstrap';
+
+#pagetitle {
+    color: rgb(255, 204, 0);
+    background-color: black;
+    text-align: center;
+}
+
+#game-board #game-table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td {
+    padding: 10px;
+}
+
+table {
+    align: center;
+}
