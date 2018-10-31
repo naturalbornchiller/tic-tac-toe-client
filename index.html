@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Tic Tac Toe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -16,38 +16,47 @@
       <div id="game-board">
         <table id="game-table">
           <tr class="row">
-            <td id="0, 0">X</td>
-            <td id="0, 1">O</td>
-            <td id="0, 2">O</td>
+            <td id="0">X</td>
+            <td id="1">O</td>
+            <td id="2">O</td>
           </tr>
           <tr class="row">
-            <td id="1, 0">X</td>
-            <td id="1, 1">O</td>
-            <td id="1, 2">O</td>
+            <td id="3">X</td>
+            <td id="4">O</td>
+            <td id="5">O</td>
           </tr>
           <tr class="row">
-            <td id="2, 0">X</td>
-            <td id="2, 1">O</td>
-            <td id="2, 2">O</td>
+            <td id="6">X</td>
+            <td id="7">O</td>
+            <td id="8">O</td>
           </tr>
         </table>
     </div>
-    <div id="playagainmodal">
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Play Again?</button> 
-         <div class="modal fade" id="exampleModal">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Wanna play again?</h5>
-                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Nah</button>
-                <button type="button" class="btn btn-primary">Yes</button>
-              </div>
-            </div>
-          </div>
-         </div>
+    <div id="playagain">
+      <button type="button">Click to play again.</button>
     </div>
+    <form id="sign-up" class="border">
+      <fieldset>
+        <legend>Sign Up!</legend>
+        <input type="text" name="credentials[email]" placeholder="Email">
+        <input type="password" name="credentials[password]" placeholder="Password">
+        <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+        <input type="submit" value="Sign Up!">
+      </fieldset>
+    </form>
+    <form id="sign-in" class="border">
+      <fieldset>
+        <legend>Sign In</legend>
+        <input type="text" name="credentials[email]" placeholder="Email">
+        <input type="password" name="credentials[password]" placeholder="Password">
+        <input type="submit" value="Sign in">
+      </fieldset>
+    </form>
+    <form id="sign-out" class="border">
+      <fieldset>
+        <legend>Sign Out</legend>
+        <input type="submit" value="Sign out">
+      </fieldset>
+    </form>
     </body>
 </html>
