@@ -2,6 +2,7 @@
 
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
+//const events = require('./books/events')
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
@@ -16,18 +17,52 @@
 //7 counter and API updated
 //8 reset button
 
+const authEvents = require('./games/events.js')
+
 $(() => {
-  //set up eventhandler for each board index
-  $('#0').on('click', //code to communicate with API)
-  $('#1').on('click', //code to communicate with API)
-  $('#2').on('click', //code to communicate with API)
-  $('#3').on('click', //code to communicate with API)
-  $('#4').on('click', //code to communicate with API)
-  $('#5').on('click', //code to communicate with API)
-  $('#6').on('click', //code to communicate with API)
-  $('#7').on('click', //code to communicate with API)
-  $('#8').on('click', //code to communicate with API)
+//sign up
+//sign in
+//sign out
+//change password
+$('#sign-up').on('submit', authEvents.onSignUp)
+$('#sign-in').on('submit', authEvents.onSignIn)
+$('#sign-out').on('submit', authEvents.onSignOut)
+//start game
+//place game events after start in events.
+
 })
+
+//EVENT HANDLERS---------------------------------------
+
+  //set up eventhandler for each board index
+
+  $('#0').on('click', () => console.log("hello0")) //clicks expect callback function
+  $('#1').on('click', () => console.log("hello1"))
+  $('#2').on('click', () => console.log("hello2"))
+  $('#3').on('click', () => console.log("hello3"))
+  $('#4').on('click', () => console.log("hello4"))
+  $('#5').on('click', () => console.log("hello5"))
+  $('#6').on('click', () => console.log("hello6"))
+  $('#7').on('click', () => console.log("hello7"))
+  $('#8').on('click', () => console.log("hello8"))
+  
+
+  //communicate with API =
+  //1st move: POST: {
+//   "game": {
+//     "id": 3,
+//     "cells": ["","","","","","","","",""],
+//     "over": false,
+//     "player_x": {
+//       "id": 1,
+//       "email": "and@and.com"
+//     },
+//     "player_o": null
+//   }
+// }
+
+
+//GAME BOARD----------------------------------------------
 
 // board is an array with single numbers as coordinates, from 0-8
   // array in JS that captures a given current state of the board
@@ -37,32 +72,35 @@ $(() => {
   // e.g., if 0 and 1 and 2 === 'o' then 'o' wins and "over" = true 
   // UNTIL array.length = 9, then draw
 
-  const xoArray = [/*string array from API server, x or o clicks pushed in*/]
-  {if (xoArray(0) && xoArray(1) && xoArray (2) == 'o' ||
-      xoArray(3) && xoArray(4) && xoArray (5) == 'o' ||
-      xoArray(6) && xoArray(7) && xoArray (8) == 'o' ||
-      xoArray(0) && xoArray(3) && xoArray (6) == 'o' ||
-      xoArray(1) && xoArray(4) && xoArray (7) == 'o' ||
-      xoArray(2) && xoArray(5) && xoArray (8) == 'o' ||
-      xoArray(0) && xoArray(4) && xoArray (2) == 'o' ||
-      xoArray(2) && xoArray(4) && xoArray (6) == 'o')
-      {/* o wins and over = true and message pops up and counter is updated and 
-      board reset button pops*/}
-  else if (xoArray(0) && xoArray(1) && xoArray (2) == 'x' ||
-      xoArray(3) && xoArray(4) && xoArray (5) == 'x' ||
-      xoArray(6) && xoArray(7) && xoArray (8) == 'x' ||
-      xoArray(0) && xoArray(3) && xoArray (6) == 'x' ||
-      xoArray(1) && xoArray(4) && xoArray (7) == 'x' ||
-      xoArray(2) && xoArray(5) && xoArray (8) == 'x' ||
-      xoArray(0) && xoArray(4) && xoArray (2) == 'x' ||
-      xoArray(2) && xoArray(4) && xoArray (6) == 'x')
-      {/* x wins and over = truea nd message pops up and counter is updated and 
-      board reset button pops*/}
-  else {/*it's a draw and over = true and message pops up and counter is updated and 
-  board reset button pops*/}
-}
-  )
+  
+  // /*const xoArray = [/*string array from API server, x or o clicks pushed in*/]
+  // {if (xoArray(0) && xoArray(1) && xoArray (2) == 'o' ||
+  //     xoArray(3) && xoArray(4) && xoArray (5) == 'o' ||
+  //     xoArray(6) && xoArray(7) && xoArray (8) == 'o' ||
+  //     xoArray(0) && xoArray(3) && xoArray (6) == 'o' ||
+  //     xoArray(1) && xoArray(4) && xoArray (7) == 'o' ||
+  //     xoArray(2) && xoArray(5) && xoArray (8) == 'o' ||
+  //     xoArray(0) && xoArray(4) && xoArray (2) == 'o' ||
+  //     xoArray(2) && xoArray(4) && xoArray (6) == 'o')
+  //     {/* o wins and over = true and message pops up and counter is updated and 
+  //     board reset button pops*/}
+  // else if (xoArray(0) && xoArray(1) && xoArray (2) == 'x' ||
+  //     xoArray(3) && xoArray(4) && xoArray (5) == 'x' ||
+  //     xoArray(6) && xoArray(7) && xoArray (8) == 'x' ||
+  //     xoArray(0) && xoArray(3) && xoArray (6) == 'x' ||
+  //     xoArray(1) && xoArray(4) && xoArray (7) == 'x' ||
+  //     xoArray(2) && xoArray(5) && xoArray (8) == 'x' ||
+  //     xoArray(0) && xoArray(4) && xoArray (2) == 'x' ||
+  //     xoArray(2) && xoArray(4) && xoArray (6) == 'x')
+  //     {/* x wins, and over = true, and message pops up, and counter is updated, and 
+  //     board reset button pops*/}
+  // else {/*it's a draw, and over = true, and message pops up, and counter is updated,
+  // and board reset button pops*/}
+  // } 
 
+//CURRENT PLAYER -------------------------------------------------------------
+
+//player_x
 
 
 

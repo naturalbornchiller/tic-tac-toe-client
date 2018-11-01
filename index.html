@@ -13,6 +13,30 @@
     </head>
     <body>
       <h1 id="pagetitle">Tic Tac Toe</h1>
+      <form id="sign-up" class="border">
+        <fieldset>
+          <legend>Sign Up!</legend>
+          <input type="text" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+          <input type="submit" value="Sign Up!">
+        </fieldset>
+      </form>
+      <form id="sign-in" class="border">
+        <fieldset>
+          <legend>Sign In</legend>
+          <input type="text" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="submit" value="Sign in">
+        </fieldset>
+      </form>
+    <!--  <form id="sign-out" class="border">
+        <fieldset>
+          <legend>Sign Out</legend>
+          <input type="submit" value="Sign out">
+        </fieldset>
+      </form> -->
+     
       <div id="game-board">
         <table id="game-table">
           <tr class="row">
@@ -35,28 +59,6 @@
     <div id="playagain">
       <button id="playagainbutton" type="button">Click to play again.</button>
     </div>
-    <form id="sign-up" class="border">
-      <fieldset>
-        <legend>Sign Up!</legend>
-        <input type="text" name="credentials[email]" placeholder="Email">
-        <input type="password" name="credentials[password]" placeholder="Password">
-        <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-        <input type="submit" value="Sign Up!">
-      </fieldset>
-    </form>
-    <form id="sign-in" class="border">
-      <fieldset>
-        <legend>Sign In</legend>
-        <input type="text" name="credentials[email]" placeholder="Email">
-        <input type="password" name="credentials[password]" placeholder="Password">
-        <input type="submit" value="Sign in">
-      </fieldset>
-    </form>
-    <form id="sign-out" class="border">
-      <fieldset>
-        <legend>Sign Out</legend>
-        <input type="submit" value="Sign out">
-      </fieldset>
-    </form>
+    
     </body>
 </html>
