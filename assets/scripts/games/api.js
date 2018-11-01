@@ -1,7 +1,7 @@
 
 const config = require('../config.js')
 const store = require('../store.js')
-const event = require('/events.js')
+const authEvent = require('./auth_events.js')
 
 const signUp = function (data) {
     return $.ajax({
@@ -21,7 +21,7 @@ const signUp = function (data) {
 
 const signIn = function (data) {
     return $.ajax({
-        url: config.apiUrl + '/sign-in', // create variable so you don't have to type url every time
+        url: config.apiUrl + '/sign-in',
         method: 'POST',
         data: data 
     })
@@ -58,25 +58,25 @@ const startGame = function () {
     })
 }
 
-const makeMove = function (move) {
-    return $.ajax({
-        url: config.apiUrl + '/games',
-        method: 'PATCH',
-        headers: {
-            Authorization: 'Token token=' + store.user.token 
-        },
-        data: move /*{ //server ONLY wants to know index and value
-            "game": { //include this in an object that looks like this one
-              "cell": { // so game[cell][index]
-                "index": 0,
-                "value": "x"
-              },
-              "over": false
-            }
-          }*/
+// const makeMove = function (move) {
+//     return $.ajax({
+//         url: config.apiUrl + '/games',
+//         method: 'PATCH',
+//         headers: {
+//             Authorization: 'Token token=' + store.user.token 
+//         },
+//         data: move /*{ //server ONLY wants to know index and value
+//             "game": { //include this in an object that looks like this one
+//               "cell": { // so game[cell][index]
+//                 "index": 0,
+//                 "value": "x"
+//               },
+//               "over": false
+//             }
+//           }*/
 
-    })
-}
+//     })
+//}
 module.exports = {
     signUp,
     signIn,

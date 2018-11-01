@@ -15,7 +15,8 @@ const signUpFailure = function (error) {
 const signInSuccess = function (data) {
     store.user = data.user
     $('#message').text('YAY!')
-    $('#message').addClass('success')    
+    $('#message').addClass('success')
+    $('#game-board').show()    
     console.log('signInSuccess ran. Data is :', data)
 }
 const signInFailure = function (error) {
@@ -50,11 +51,12 @@ const signOutFailure = function (error) {
     console.log('signOutFailure ran. Error is :', error)
 }
 
-const startGamefailure
+//const startGameFailure =
 
 module.exports = {
     signUpSuccess,
     signUpFailure,
     signInSuccess,
-    signInFailure
+    signInFailure,
+    //startGameFailure
 }

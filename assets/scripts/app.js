@@ -17,27 +17,23 @@
 //7 counter and API updated
 //8 reset button
 
-const authEvents = require('./games/events.js')
+const authEvents = require('./games/auth_events.js')
+const gameEvents = require('./games/game_events.js')
 
 $(() => {
-//sign up
-//sign in
-//sign out
-//change password
 $('#sign-up').on('submit', authEvents.onSignUp)
 $('#sign-in').on('submit', authEvents.onSignIn)
 $('#change-password').on('submit', authEvents.onChangePassword)
 $('#sign-out').on('submit', authEvents.onSignOut)
-//start game
+$('#new-game').on('submit', gameEvents.onStartGame) 
 //place game events after start in events.
-
 })
 
 //EVENT HANDLERS---------------------------------------
 
   //set up eventhandler for each board index
 
-  $('#0').on('click', () => console.log("hello0")) //clicks expect callback function
+  $('#0').on('click', () => /*gameEvents.makeMove*/ */console.log("hello0")) //clicks expect callback function
   $('#1').on('click', () => console.log("hello1"))
   $('#2').on('click', () => console.log("hello2"))
   $('#3').on('click', () => console.log("hello3"))
@@ -46,6 +42,8 @@ $('#sign-out').on('submit', authEvents.onSignOut)
   $('#6').on('click', () => console.log("hello6"))
   $('#7').on('click', () => console.log("hello7"))
   $('#8').on('click', () => console.log("hello8"))
+
+  //what does user 
   
 
   //communicate with API =
@@ -73,9 +71,7 @@ $('#sign-out').on('submit', authEvents.onSignOut)
   // e.g., if 0 and 1 and 2 === 'o' then 'o' wins and "over" = true 
   // UNTIL array.length = 9, then draw
 
-  const createBoard = function () {
-    $('game.table')//make game.table appear
-  }
+  
   
   // /*const xoArray = [/*string array from API server, x or o clicks pushed in*/]
   // {if (xoArray(0) && xoArray(1) && xoArray (2) == 'o' ||

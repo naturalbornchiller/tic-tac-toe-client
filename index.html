@@ -11,8 +11,12 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
+    
     <body>
+
       <h1 id="pagetitle">Tic Tac Toe</h1>
+      
+            <!--Big div for all the forms-->
       <div id="forms">
       <form id="sign-up" class="border">
         <fieldset>
@@ -45,13 +49,21 @@
           <input type="submit" value="Sign out">
         </fieldset>
       </form> 
+                <!--forms end here-->
+
       <br>
+      
+      <!--Play button-->
       <form id="new-game">
-          <input type="submit" value="Play!"></input> 
+          <input type="submit" value="Play!">
       </form>
     </div>
-      <div id="game-board">
-        <table id="game-table">
+    
+    <!--Game placeholder div-->
+      <div id="game-div">
+
+        <!--Game board itself-->
+        <table id="game-board">
           <tr class="row">
             <td id="0"></td>
             <td id="1"></td>
@@ -70,7 +82,7 @@
         </table>
     </div>
     <div id="playagain">
-      <button id="playagainbutton" type="button">Click to play again.</button>
+      <button id="playagainbutton" type="button" hidden>Click to play again.</button>
     </div>
     
     </body>
