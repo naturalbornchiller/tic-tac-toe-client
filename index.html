@@ -13,6 +13,7 @@
     </head>
     <body>
       <h1 id="pagetitle">Tic Tac Toe</h1>
+      <div id="forms">
       <form id="sign-up" class="border">
         <fieldset>
           <legend>Sign Up!</legend>
@@ -30,13 +31,25 @@
           <input type="submit" value="Sign in">
         </fieldset>
       </form>
-    <!--  <form id="sign-out" class="border">
+      <form id="change-password" class="border">
+        <fieldset>
+          <legend>Change Password</legend>
+          <input type="password" name="passwords[old]" placeholder="Old Password">
+          <input type="password" name="passwords[new]" placeholder="New Password">
+          <input type="submit" value="Change Password">
+        </fieldset>
+      </form> 
+      <form id="sign-out" class="border">
         <fieldset>
           <legend>Sign Out</legend>
           <input type="submit" value="Sign out">
         </fieldset>
-      </form> -->
-     
+      </form> 
+      <br>
+      <form id="new-game">
+          <input type="submit" value="Play!"></input> 
+      </form>
+    </div>
       <div id="game-board">
         <table id="game-table">
           <tr class="row">

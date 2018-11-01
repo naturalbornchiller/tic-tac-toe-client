@@ -26,6 +26,7 @@ $(() => {
 //change password
 $('#sign-up').on('submit', authEvents.onSignUp)
 $('#sign-in').on('submit', authEvents.onSignIn)
+$('#change-password').on('submit', authEvents.onChangePassword)
 $('#sign-out').on('submit', authEvents.onSignOut)
 //start game
 //place game events after start in events.
@@ -72,6 +73,9 @@ $('#sign-out').on('submit', authEvents.onSignOut)
   // e.g., if 0 and 1 and 2 === 'o' then 'o' wins and "over" = true 
   // UNTIL array.length = 9, then draw
 
+  const createBoard = function () {
+    $('game.table')//make game.table appear
+  }
   
   // /*const xoArray = [/*string array from API server, x or o clicks pushed in*/]
   // {if (xoArray(0) && xoArray(1) && xoArray (2) == 'o' ||
