@@ -21,44 +21,35 @@ const authEvents = require('./games/auth_events.js')
 const gameEvents = require('./games/game_events.js')
 
 $(() => {
+
+//AUTH EVENTS---------------------------------------
 $('#sign-up').on('submit', authEvents.onSignUp)
 $('#sign-in').on('submit', authEvents.onSignIn)
 $('#change-password').on('submit', authEvents.onChangePassword)
 $('#sign-out').on('submit', authEvents.onSignOut)
+//--------------------------------------------------
+
+//GAME EVENTS----------------------------------------
 $('#new-game').on('submit', gameEvents.onStartGame) 
-//place game events after start in events.
+
+$('#0').on('click', () => gameEvents.onMakeMove(event))
+$('#1').on('click', () => gameEvents.onMakeMove(event))
+$('#2').on('click', () => gameEvents.onMakeMove(event))
+$('#3').on('click', () => gameEvents.onMakeMove(event))
+$('#4').on('click', () => gameEvents.onMakeMove(event))
+$('#5').on('click', () => gameEvents.onMakeMove(event))
+$('#6').on('click', () => gameEvents.onMakeMove(event))
+$('#7').on('click', () => gameEvents.onMakeMove(event))
+$('#8').on('click', () => gameEvents.onMakeMove(event))
+//----------------------------------------------------
+
 })
 
-//EVENT HANDLERS---------------------------------------
 
-  //set up eventhandler for each board index
 
-  $('#0').on('click', () => /*gameEvents.makeMove*/ */console.log("hello0")) //clicks expect callback function
-  $('#1').on('click', () => console.log("hello1"))
-  $('#2').on('click', () => console.log("hello2"))
-  $('#3').on('click', () => console.log("hello3"))
-  $('#4').on('click', () => console.log("hello4"))
-  $('#5').on('click', () => console.log("hello5"))
-  $('#6').on('click', () => console.log("hello6"))
-  $('#7').on('click', () => console.log("hello7"))
-  $('#8').on('click', () => console.log("hello8"))
+ 
 
-  //what does user 
-  
 
-  //communicate with API =
-  //1st move: POST: {
-//   "game": {
-//     "id": 3,
-//     "cells": ["","","","","","","","",""],
-//     "over": false,
-//     "player_x": {
-//       "id": 1,
-//       "email": "and@and.com"
-//     },
-//     "player_o": null
-//   }
-// }
 
 
 //GAME BOARD----------------------------------------------
@@ -71,31 +62,32 @@ $('#new-game').on('submit', gameEvents.onStartGame)
   // e.g., if 0 and 1 and 2 === 'o' then 'o' wins and "over" = true 
   // UNTIL array.length = 9, then draw
 
-  
-  
-  // /*const xoArray = [/*string array from API server, x or o clicks pushed in*/]
-  // {if (xoArray(0) && xoArray(1) && xoArray (2) == 'o' ||
-  //     xoArray(3) && xoArray(4) && xoArray (5) == 'o' ||
-  //     xoArray(6) && xoArray(7) && xoArray (8) == 'o' ||
-  //     xoArray(0) && xoArray(3) && xoArray (6) == 'o' ||
-  //     xoArray(1) && xoArray(4) && xoArray (7) == 'o' ||
-  //     xoArray(2) && xoArray(5) && xoArray (8) == 'o' ||
-  //     xoArray(0) && xoArray(4) && xoArray (2) == 'o' ||
-  //     xoArray(2) && xoArray(4) && xoArray (6) == 'o')
+  // /*const boardArray = [/*string array from API server, x or o clicks pushed in*/]
+  // const gameEngine = function () {
+  // for (let i = 0; i < 9; i++) {
+  // if (boardArray(0) && boardArray(1) && boardArray (2) == 'o' ||
+  //     boardArray(3) && boardArray(4) && boardArray (5) == 'o' ||
+  //     boardArray(6) && boardArray(7) && boardArray (8) == 'o' ||
+  //     boardArray(0) && boardArray(3) && boardArray (6) == 'o' ||
+  //     boardArray(1) && boardArray(4) && boardArray (7) == 'o' ||
+  //     boardArray(2) && boardArray(5) && boardArray (8) == 'o' ||
+  //     boardArray(0) && boardArray(4) && boardArray (2) == 'o' ||
+  //     boardArray(2) && boardArray(4) && boardArray (6) == 'o')
   //     {/* o wins and over = true and message pops up and counter is updated and 
   //     board reset button pops*/}
-  // else if (xoArray(0) && xoArray(1) && xoArray (2) == 'x' ||
-  //     xoArray(3) && xoArray(4) && xoArray (5) == 'x' ||
-  //     xoArray(6) && xoArray(7) && xoArray (8) == 'x' ||
-  //     xoArray(0) && xoArray(3) && xoArray (6) == 'x' ||
-  //     xoArray(1) && xoArray(4) && xoArray (7) == 'x' ||
-  //     xoArray(2) && xoArray(5) && xoArray (8) == 'x' ||
-  //     xoArray(0) && xoArray(4) && xoArray (2) == 'x' ||
-  //     xoArray(2) && xoArray(4) && xoArray (6) == 'x')
+  // else if (boardArray(0) && boardArray(1) && boardArray (2) == 'x' ||
+  //     boardArray(3) && boardArray(4) && boardArray (5) == 'x' ||
+  //     boardArray(6) && boardArray(7) && boardArray (8) == 'x' ||
+  //     boardArray(0) && boardArray(3) && boardArray (6) == 'x' ||
+  //     boardArray(1) && boardArray(4) && boardArray (7) == 'x' ||
+  //     boardArray(2) && boardArray(5) && boardArray (8) == 'x' ||
+  //     boardArray(0) && boardArray(4) && boardArray (2) == 'x' ||
+  //     boardArray(2) && boardArray(4) && boardArray (6) == 'x')
   //     {/* x wins, and over = true, and message pops up, and counter is updated, and 
   //     board reset button pops*/}
-  // else {/*it's a draw, and over = true, and message pops up, and counter is updated,
-  // and board reset button pops*/}
+  // else {switch player } 
+  /*it's a draw, and over = true, and message pops up, and counter is updated,
+  // and board reset button pops*/
   // } 
 
 //CURRENT PLAYER -------------------------------------------------------------

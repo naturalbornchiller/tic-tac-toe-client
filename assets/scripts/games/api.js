@@ -2,6 +2,7 @@
 const config = require('../config.js')
 const store = require('../store.js')
 const authEvent = require('./auth_events.js')
+const gameEvent = require('./game_events.js')
 
 const signUp = function (data) {
     return $.ajax({
@@ -54,9 +55,31 @@ const startGame = function () {
         method: 'POST',
         headers: {
             Authorization: 'Token token=' + store.user.token 
-        } 
+        },
+
     })
 }
+
+// const updateGame = function () {
+//     return $.ajax({
+//         url: config.apiUrl + '/games',
+//         method: 'PATCH',
+//         headers: {
+//             Authorization: 'Token token=' + store.user.token 
+//         },
+//         data: //data from both boardArray, gameEngine... server wants:
+//         //{
+//                 //   "game": {
+//                 //     "cell": {
+//                 //       "index": 0,
+//                 //       "value": "x"
+//                 //     },
+//                 //     "over": false
+//                 //   }
+//                 // }
+
+//     })
+// }
 
 // const makeMove = function (move) {
 //     return $.ajax({
