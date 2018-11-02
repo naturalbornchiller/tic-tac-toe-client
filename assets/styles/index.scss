@@ -13,11 +13,14 @@
 
 td {
     padding: 50px;
+    width: 50px;
     border: 1px solid black; 
+    background-color: gold;
 }
 
 table {
     align: center;
+    table-layout: fixed;
 }
 
 // form {

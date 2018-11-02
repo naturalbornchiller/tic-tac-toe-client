@@ -1,4 +1,5 @@
 const store = require('../store.js')
+const gameEvents = require('./game_events.js')
 
 const signUpSuccess = function (data) {
     $('#message').text('Welcome!')
@@ -50,9 +51,11 @@ const signOutFailure = function (error) {
     console.log('signOutFailure ran. Error is :', error)
 }
 
+const currentPlayerUi = store.currentPlayer
+
 const fillIn = function (event) {
-    //$('#0').text('x')
-    $('#' + event.target.id).text(currentPlayer) // could also pass whether it's x or o using event.target? 
+    $('#' + event.target.id).text(currentPlayerUi) 
+    console.log(store.currentPlayer)
     console.log(event.target.id)
 }
 //const startGameFailure =

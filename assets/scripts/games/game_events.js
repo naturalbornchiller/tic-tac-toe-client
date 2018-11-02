@@ -1,44 +1,38 @@
 const api = require('./api.js')
-const app = require('../app.js')
 const ui = require('./ui.js')
+const store = require('../store.js')
 
-// const createBoard = function () {$('#game-board').show()
-//   }
 
-const onStartGame = function () {
+//PLAYERS--------------------------------------------------
+
+
+//GAME EVENTS---------------------------------------------------
+const onStartGame = function (event) {
     event.preventDefault()
     api.startGame()
-   // .then(createBoard)
-    let currentPlayer = player_x
-    //.catch(ui.startGamefailure)
+    .then(/*createBoard*/)
+    .catch(ui.startGamefailure)
 }
-//PLAYERS--------------------------------------------------
-const player_x = 'X'
-const player_o = 'O'
-const switchPlayers = function () {
-  if (currentplayer === player_x /*&& moveMade === true*/) {
-      currentPlayer === player_o
-  } else if (currentplayer === player_o /*&& moveMade === true*/) {
-      currentPlayer === player_x
-  }
-const moveMade = false
 
-//MOVES------------------------------------------------------
 const onMakeMove = function(event) { 
-    console.log(event.target.id)
-// 1 moveMade = true
-    moveMade = !moveMade //????
+    const targetId = event.target.id
     
-// 2 switchPlayer
-    switchPlayers()
+    
+
 // 3 Communicate with user-------------------
     ui.fillIn(event)
 
 // 4 api.updateGame
+  //  api.updateGame()
 
-// 5 app.gameEngine
-
+// 5 update boardArray
+    store.switchPlayers()
+    store.boardArray[targetId] = store.currentPlayer 
+    store.gameEngine()
+    console.log(store.boardArray)
+   //????
 // 6 prevent clicked space from being filled again or changed
+}
 
 
  module.exports = {

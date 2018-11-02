@@ -8,15 +8,7 @@ const signUp = function (data) {
     return $.ajax({
         url: config.apiUrl + '/sign-up', // create variable so you don't have to type url every time
         method: 'POST',
-        data: data //BUT JS can just take data as a key with no value 
-                // since we named it data (if you use a kay and value of the same name, 
-                // it only needs one word, not two)
-        //this whole thing (this $.ajax()) is an asynchronous request; the program 
-        // can keep working while
-        // this request is out; it doesn't have to wait for the response; it's like
-        // a little side process so you can multi-task
-        // code will run line by line unless you tell it not to
-
+        data: data 
     })
 }
 
@@ -56,11 +48,11 @@ const startGame = function () {
         headers: {
             Authorization: 'Token token=' + store.user.token 
         },
-
+        data: {}
     })
 }
 
-// const updateGame = function () {
+// const updateGame = function (data) {
 //     return $.ajax({
 //         url: config.apiUrl + '/games',
 //         method: 'PATCH',
