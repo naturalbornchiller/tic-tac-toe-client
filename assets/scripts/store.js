@@ -1,6 +1,7 @@
 'use strict'
 
 const store = {
+    
 }
 
 //BOARD ARRAY AND GAME ENGINE----------------------------------------

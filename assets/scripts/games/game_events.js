@@ -25,52 +25,62 @@ const boardArray = []
 const totalsBoardArray = []
 let overOrNot = false
 
+//DEFINING GAME ENGINE FOR LATER USE INSIDE ONMAKEMOVE FUNCTION
 const gameEngine = function () {
       if (totalsBoardArray.length < 9) {
-        if (boardArray[0] && boardArray[1] && boardArray [2] === 'O' ||
-            boardArray[3] && boardArray[4] && boardArray [5] === 'O' ||
-            boardArray[6] && boardArray[7] && boardArray [8] === 'O' ||
-            boardArray[0] && boardArray[3] && boardArray [6] === 'O' ||
-            boardArray[1] && boardArray[4] && boardArray [7] === 'O' ||
-            boardArray[2] && boardArray[5] && boardArray [8] === 'O' ||
-            boardArray[0] && boardArray[4] && boardArray [8] === 'O' ||
-            boardArray[2] && boardArray[4] && boardArray [6] === 'O') 
+        if (boardArray[0] === 'O' && boardArray[1] === 'O' && boardArray [2] === 'O' ||
+            boardArray[3] === 'O' && boardArray[4] === 'O' && boardArray [5] === 'O' ||
+            boardArray[6] === 'O' && boardArray[7] === 'O' && boardArray [8] === 'O' ||
+            boardArray[0] === 'O' && boardArray[3] === 'O' && boardArray [6] === 'O' ||
+            boardArray[1] === 'O' && boardArray[4] === 'O' && boardArray [7] === 'O' ||
+            boardArray[2] === 'O' && boardArray[5] === 'O' && boardArray [8] === 'O' ||
+            boardArray[0] === 'O' && boardArray[4] === 'O' && boardArray [8] === 'O' ||
+            boardArray[2] === 'O' && boardArray[4] === 'O' && boardArray [6] === 'O') 
             {
               console.log('O WINS!!!!!!!!!!!!!!!!!')
               overOrNot = true
             }
-        else if (boardArray[0] && boardArray[1] && boardArray [2] === 'X' ||
-                 boardArray[3] && boardArray[4] && boardArray [5] === 'X' ||
-                 boardArray[6] && boardArray[7] && boardArray [8] === 'X' ||
-                 boardArray[0] && boardArray[3] && boardArray [6] === 'X' ||
-                 boardArray[1] && boardArray[4] && boardArray [7] === 'X' ||
-                 boardArray[2] && boardArray[5] && boardArray [8] === 'X' ||
-                 boardArray[0] && boardArray[4] && boardArray [8] === 'X' ||
-                 boardArray[2] && boardArray[4] && boardArray [6] === 'X') 
+        else if (boardArray[0] === 'X' && boardArray[1] === 'X' && boardArray [2] === 'X' ||
+                 boardArray[3] === 'X' && boardArray[4] === 'X' && boardArray [5] === 'X' ||
+                 boardArray[6] === 'X' && boardArray[7] === 'X' && boardArray [8] === 'X' ||
+                 boardArray[0] === 'X' && boardArray[3] === 'X' && boardArray [6] === 'X' ||
+                 boardArray[1] === 'X' && boardArray[4] === 'X' && boardArray [7] === 'X' ||
+                 boardArray[2] === 'X' && boardArray[5] === 'X' && boardArray [8] === 'X' ||
+                 boardArray[0] === 'X' && boardArray[4] === 'X' && boardArray [8] === 'X' ||
+                 boardArray[2] === 'X' && boardArray[4] === 'X' && boardArray [6] === 'X') 
             {
                 console.log('X WINS!!!!!!!!!!!!!!!!!!!!!!!!')
                 overOrNot = true
             }
         else {
-            
+
         }
         } else {
             console.log("DRAW!!!!!!!!!!!")
+            overOrNot = true
         }
 }
 
 const onMakeMove = function(event) { 
      //UPDATE ARRAYS
      boardArray[event.target.id] = currentPlayer
-     console.log("store.boardArray in gameEvents is" + " " + boardArray)
+     console.log("boardArray in gameEvents is" + " " + boardArray)
+     console.log("Array is" + " " + Array.isArray(boardArray))
      totalsBoardArray.push(currentPlayer) 
-     console.log("store.totalsBoardArray.length in gameEvents is" + " " + totalsBoardArray.length)
-     
+     console.log("totalsBoardArray.length in gameEvents is" + " " + totalsBoardArray.length)
+     console.log("store.game is" + " "+ store.game.id)
+     console.log("store.user.token is" + " "+ store.user.token)
     //UPDATE API
      const data = {
-        //id: store.games.id,
+         game: {
+            cell: {
+         
+        //id: store.game.id,
         value: currentPlayer,
         index: event.target.id
+        },
+        over: overOrNot
+         }
     }
     api.updateGame(data)
     .then(ui.updateGameSuccess)
