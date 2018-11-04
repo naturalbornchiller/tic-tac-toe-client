@@ -15,6 +15,9 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
     event.preventDefault()
     const data = getFormFields(event.target)
+    document.getElementById('change-password').hidden = false
+    document.getElementById('sign-out').hidden = false
+    document.getElementById('new-game-button').hidden = false
     api.signIn(data) 
     .then(ui.signInSuccess) 
     .catch(ui.signInFailure)

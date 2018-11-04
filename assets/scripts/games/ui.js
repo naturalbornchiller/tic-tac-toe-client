@@ -1,5 +1,5 @@
 const store = require('../store.js')
-const gameEvents = require('./game_events.js')
+//const gameEvents = require('./game_events.js')
 
 const signUpSuccess = function (data) {
     $('#message').text('Welcome!')
@@ -20,6 +20,7 @@ const signInSuccess = function (data) {
     $('#game-board').show()    
     console.log('signInSuccess ran. Data is :', data)
 }
+
 const signInFailure = function (error) {
     $('#message').text('Nope. Did not work.')
     $('#message').addClass('failure')
@@ -51,13 +52,39 @@ const signOutFailure = function (error) {
     console.log('signOutFailure ran. Error is :', error)
 }
 
-const currentPlayerUi = store.currentPlayer
-
-const fillIn = function (event) {
-    $('#' + event.target.id).text(currentPlayerUi) 
-    console.log(store.currentPlayer)
-    console.log(event.target.id)
+const startGameSuccess = function(data) {
+    store.game = data.game //why is it not storing data?
+    $('#message').text('You are in!')
+    //$('#message').addClass('success')
+   // $('#game-board').show()    
+    console.log('startGameSuccess ran. Data is :', data)
 }
+
+const startGameFailure = function(data) {
+   // store.game = data.game //why is it not storing data?
+    $('#message').text('Oops! A game could not start!')
+    $('#message').addClass('success')
+    //$('#game-board').show()   
+    console.log('startGameFailure ran. Data is :', data)
+}
+
+// const getStartedGameDataSuccess = function (data){
+//     store.game = data.game
+//     //$('#message').text('Play well.')
+//     //$('#message').addClass('success')
+//     //$('#game-board').show()    
+//     console.log('getStartedGameDataSuccess ran. Data is :', data)
+// }
+
+const updateGameSuccess = function(data) {
+    store.game = data.game //why is it not storing data?
+    //$('#message').text('You are in!')
+    //$('#message').addClass('success')
+   // $('#game-board').show()    
+    console.log('updateGameSuccess ran. Data is :', data)
+}
+
+//const createBoard = $('#game-board').show()
 //const startGameFailure =
 
 module.exports = {
@@ -65,5 +92,13 @@ module.exports = {
     signUpFailure,
     signInSuccess,
     signInFailure,
-    fillIn
+    changePasswordSuccess,
+    changePasswordFailure,
+    signOutSuccess,
+    signOutFailure,
+   // createBoard,
+   // getStartedGameDataSuccess,
+    updateGameSuccess,
+    startGameSuccess,
+    startGameFailure
 }

@@ -35,7 +35,7 @@
           <input type="submit" value="Sign in">
         </fieldset>
       </form>
-      <form id="change-password" class="border">
+      <form id="change-password" class="border" hidden>
         <fieldset>
           <legend>Change Password</legend>
           <input type="password" name="passwords[old]" placeholder="Old Password">
@@ -43,7 +43,7 @@
           <input type="submit" value="Change Password">
         </fieldset>
       </form> 
-      <form id="sign-out" class="border">
+      <form id="sign-out" class="border" hidden>
         <fieldset>
           <legend>Sign Out</legend>
           <input type="submit" value="Sign out">
@@ -56,7 +56,7 @@
         <p id="message"> </p>
       </div>
       <!--Play button-->
-      <form id="new-game">
+      <form id="new-game-button" hidden>
           <input type="submit" value="Play!">
       </form>
     </div>
@@ -65,7 +65,7 @@
       <div id="game-div">
 
         <!--Game board itself-->
-        <table id="game-board">
+        <table id="game-board" hidden>
           <tr class="row">
             <td id="0"> </td>
             <td id="1"> </td>

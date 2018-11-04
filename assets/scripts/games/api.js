@@ -1,9 +1,10 @@
 
 const config = require('../config.js')
 const store = require('../store.js')
-const authEvent = require('./auth_events.js')
-const gameEvent = require('./game_events.js')
+//const authEvent = require('./auth_events.js')
+//const gameEvent = require('./game_events.js')
 
+//AUTH API----------------------------------------------------
 const signUp = function (data) {
     return $.ajax({
         url: config.apiUrl + '/sign-up', // create variable so you don't have to type url every time
@@ -40,7 +41,17 @@ const signOut = function () {
         } 
     })
 }
-
+//GAME API--------------------------------------------
+const getStartedGameData = function () {
+    return $.ajax({
+        url: config.apiUrl + '/games',
+        method: 'GET',
+        headers: {
+            Authorization: 'Token token=' + store.user.token 
+        },
+        data: {}
+    })
+}
 const startGame = function () {
     return $.ajax({
         url: config.apiUrl + '/games',
@@ -50,52 +61,27 @@ const startGame = function () {
         },
         data: {}
     })
+
 }
 
-// const updateGame = function (data) {
-//     return $.ajax({
-//         url: config.apiUrl + '/games',
-//         method: 'PATCH',
-//         headers: {
-//             Authorization: 'Token token=' + store.user.token 
-//         },
-//         data: //data from both boardArray, gameEngine... server wants:
-//         //{
-//                 //   "game": {
-//                 //     "cell": {
-//                 //       "index": 0,
-//                 //       "value": "x"
-//                 //     },
-//                 //     "over": false
-//                 //   }
-//                 // }
+const updateGame = function (data) {
+    return $.ajax({
+        url: config.apiUrl + '/games/:' + store.game.id,
+        method: 'PATCH',
+        headers: {
+            Authorization: 'Token token=' + store.user.token 
+        },
+        data
+    })
+}
 
-//     })
-// }
 
-// const makeMove = function (move) {
-//     return $.ajax({
-//         url: config.apiUrl + '/games',
-//         method: 'PATCH',
-//         headers: {
-//             Authorization: 'Token token=' + store.user.token 
-//         },
-//         data: move /*{ //server ONLY wants to know index and value
-//             "game": { //include this in an object that looks like this one
-//               "cell": { // so game[cell][index]
-//                 "index": 0,
-//                 "value": "x"
-//               },
-//               "over": false
-//             }
-//           }*/
-
-//     })
-//}
 module.exports = {
     signUp,
     signIn,
     changePassword, 
     signOut,
-    startGame
+    startGame,
+    getStartedGameData,
+    updateGame
 }

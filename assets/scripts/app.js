@@ -12,7 +12,7 @@ $('#sign-out').on('submit', authEvents.onSignOut)
 //--------------------------------------------------
 
 //GAME EVENTS----------------------------------------
-$('#new-game').on('submit', gameEvents.onStartGame) 
+$('#new-game-button').on('submit', gameEvents.onStartGame) 
 
 $('#0').on('click', () => gameEvents.onMakeMove(event))
 $('#1').on('click', () => gameEvents.onMakeMove(event))
@@ -26,7 +26,6 @@ $('#8').on('click', () => gameEvents.onMakeMove(event))
 //----------------------------------------------------
  
 })
-
 
 
 
