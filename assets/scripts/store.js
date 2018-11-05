@@ -1,50 +1,25 @@
 'use strict'
 
+//const gameEvents = require('./games/game_events.js') 
 const store = {
     
 }
 
-//BOARD ARRAY AND GAME ENGINE----------------------------------------
-// let boardArray = []
-// let totalsBoardArray = []
-// let overOrNot = false
-
-// const gameEngine = function () {
-//       if (totalsBoardArray.length < 9) {
-//         if (boardArray[0] && boardArray[1] && boardArray [2] === 'O' ||
-//             boardArray[3] && boardArray[4] && boardArray [5] === 'O' ||
-//             boardArray[6] && boardArray[7] && boardArray [8] === 'O' ||
-//             boardArray[0] && boardArray[3] && boardArray [6] === 'O' ||
-//             boardArray[1] && boardArray[4] && boardArray [7] === 'O' ||
-//             boardArray[2] && boardArray[5] && boardArray [8] === 'O' ||
-//             boardArray[0] && boardArray[4] && boardArray [8] === 'O' ||
-//             boardArray[2] && boardArray[4] && boardArray [6] === 'O') 
-//             {
-//               console.log('O WINS!!!!!!!!!!!!!!!!!')
-//               overOrNot = true
-//             }
-//         else if (boardArray[0] && boardArray[1] && boardArray [2] === 'X' ||
-//                  boardArray[3] && boardArray[4] && boardArray [5] === 'X' ||
-//                  boardArray[6] && boardArray[7] && boardArray [8] === 'X' ||
-//                  boardArray[0] && boardArray[3] && boardArray [6] === 'X' ||
-//                  boardArray[1] && boardArray[4] && boardArray [7] === 'X' ||
-//                  boardArray[2] && boardArray[5] && boardArray [8] === 'X' ||
-//                  boardArray[0] && boardArray[4] && boardArray [8] === 'X' ||
-//                  boardArray[2] && boardArray[4] && boardArray [6] === 'X') 
-//             {
-//                 console.log('X WINS!!!!!!!!!!!!!!!!!!!!!!!!')
-//                 overOrNot = true
-//             }
-//         else {}
-//         } else {console.log("DRAW!!!!!!!!!!!")}
-//     console.log("store.boardArray in store.js is" + " " + boardArray)
-  
-//     console.log("store.totalsBoardArray.length in store.js is" + " " + totalsBoardArray.length)
-  
-// }
+// const clickEvents = function () {
+//     $('#0').on('click', () => gameEvents.onMakeMove(event))
+//     $('#1').on('click', () => gameEvents.onMakeMove(event))
+//     $('#2').on('click', () => gameEvents.onMakeMove(event))
+//     $('#3').on('click', () => gameEvents.onMakeMove(event))
+//     $('#4').on('click', () => gameEvents.onMakeMove(event))
+//     $('#5').on('click', () => gameEvents.onMakeMove(event))
+//     $('#6').on('click', () => gameEvents.onMakeMove(event))
+//     $('#7').on('click', () => gameEvents.onMakeMove(event))
+//     $('#8').on('click', () => gameEvents.onMakeMove(event))
+//     }
  
 module.exports = {
-    store,
+    store
+    //clickEvents
     // boardArray,
     // totalsBoardArray,
     // gameEngine,

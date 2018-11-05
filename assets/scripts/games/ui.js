@@ -1,5 +1,4 @@
 const store = require('../store.js')
-//const gameEvents = require('./game_events.js')
 
 const signUpSuccess = function (data) {
     $('#message').text('Welcome!')
@@ -53,39 +52,21 @@ const signOutFailure = function (error) {
 }
 
 const startGameSuccess = function(data) {
-    store.game = data.game //why is it not storing data?
-    $('#message').text('You are in!')
-    //$('#message').addClass('success')
-   // $('#game-board').show()    
+    store.game = data.game 
+    $('#message').text('You are in!')  
     console.log('startGameSuccess ran. Data is :', data)
 }
 
 const startGameFailure = function(data) {
-   // store.game = data.game //why is it not storing data?
     $('#message').text('Oops! A game could not start!')
-    $('#message').addClass('success')
-    //$('#game-board').show()   
+    $('#message').addClass('success') 
     console.log('startGameFailure ran. Data is :', data)
 }
 
-// const getStartedGameDataSuccess = function (data){
-//     store.game = data.game
-//     //$('#message').text('Play well.')
-//     //$('#message').addClass('success')
-//     //$('#game-board').show()    
-//     console.log('getStartedGameDataSuccess ran. Data is :', data)
-// }
-
 const updateGameSuccess = function(data) {
-    store.game = data.game //why is it not storing data?
-    //$('#message').text('You are in!')
-    //$('#message').addClass('success')
-   // $('#game-board').show()    
+    store.game = data.game   
     console.log('updateGameSuccess ran. Data is :', data)
 }
-
-//const createBoard = $('#game-board').show()
-//const startGameFailure =
 
 module.exports = {
     signUpSuccess,
@@ -96,8 +77,6 @@ module.exports = {
     changePasswordFailure,
     signOutSuccess,
     signOutFailure,
-   // createBoard,
-   // getStartedGameDataSuccess,
     updateGameSuccess,
     startGameSuccess,
     startGameFailure
