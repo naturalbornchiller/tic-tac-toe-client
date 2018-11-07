@@ -116,10 +116,18 @@ const onMakeMove = function(event) {
     switchPlayers()
 }
 
+const onGetGames = function(event) {
+    event.preventDefault()
+    api.getGames()
+    .then(ui.getGamesSuccess)
+    .catch(ui.getGamesFailure)
+}
+
 
 
  module.exports = {
      onStartGame,
      onMakeMove,
-     onStartNewGame
+     onStartNewGame,
+     onGetGames
  }
