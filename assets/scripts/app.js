@@ -12,7 +12,8 @@ $('#sign-in').on('submit', authEvents.onSignIn)
 $('#change-password').on('submit', authEvents.onChangePassword)
 $('#sign-out').on('submit', authEvents.onSignOut)
 //--------------------------------------------------
-$('#new-game-button').on('submit', gameEvents.onStartGame) 
+$('#new-game-button').on('submit', gameEvents.onStartGame)
+$('#get-games-button').on('submit', gameEvents.onGetGames) 
 $('#playagainbutton').on('submit', gameEvents.onStartNewGame) 
 
 const clickEvents = function () {

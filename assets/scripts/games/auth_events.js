@@ -18,6 +18,7 @@ const onSignIn = function (event) {
     document.getElementById('change-password').hidden = false
     document.getElementById('sign-out').hidden = false
     document.getElementById('new-game-button').hidden = false
+    document.getElementById('get-games-button').hidden = false
     api.signIn(data) 
     .then(ui.signInSuccess) 
     .catch(ui.signInFailure)
