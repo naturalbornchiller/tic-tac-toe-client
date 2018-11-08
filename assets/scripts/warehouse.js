@@ -1,9 +1,4 @@
-'use strict'
-
-//const gameEvents = require('./games/game_events.js') 
-const store = {
-    
-}
+// const gameEvents = require('./games/game_events.js')
 
 // const clickEvents = function () {
 //     $('#0').on('click', () => gameEvents.onMakeMove(event))
@@ -16,14 +11,7 @@ const store = {
 //     $('#7').on('click', () => gameEvents.onMakeMove(event))
 //     $('#8').on('click', () => gameEvents.onMakeMove(event))
 //     }
- 
-module.exports = {
-    store
-  //  clickEvents
-    // boardArray,
-    // totalsBoardArray,
-    // gameEngine,
-    //currentPlayer
-    //overOrNot
-   // switchPlayers
-   }
+
+//     module.exports = {
+//         clickEvents
+//     }

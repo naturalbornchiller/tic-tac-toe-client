@@ -70,7 +70,15 @@ const updateGameSuccess = function(data) {
 
 const getGamesSuccess = function (data) {
     store.games = data.games
+    $('#message').text('Here are your past games, as raw data: ' + store.games)
     console.log('getGamesSuccess ran. Data is :', store.games)
+    //pass store.games info: throw data back at user (would be adequate
+    // for this assignment), 
+    // or run cells
+    // for over games back through gameEngine
+    // each element of the array that comes back is an object
+    //the array itself is called games
+
 }
 
 const getGamesFailure = function () {

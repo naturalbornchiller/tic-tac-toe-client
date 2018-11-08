@@ -1,7 +1,19 @@
 const api = require('./api.js')
 const ui = require('./ui.js')
-//const store = require('../store.js')
+const store = require('./../store.js')
 //const app = require('../app.js')
+//const warehouse = require('../warehouse.js')
+const clickEvents = function () {
+    $('#0').on('click', () => onMakeMove(event))
+    $('#1').on('click', () => onMakeMove(event))
+    $('#2').on('click', () => onMakeMove(event))
+    $('#3').on('click', () => onMakeMove(event))
+    $('#4').on('click', () => onMakeMove(event))
+    $('#5').on('click', () => onMakeMove(event))
+    $('#6').on('click', () => onMakeMove(event))
+    $('#7').on('click', () => onMakeMove(event))
+    $('#8').on('click', () => onMakeMove(event))
+    }
 
 //GAME EVENTS---------------------------------------------------
 const onStartGame = function (event) {
@@ -18,7 +30,8 @@ const onStartNewGame = function (event) {
     boardArray = []
     totalsBoardArray = []
     currentPlayer = "X"
-    //store.clickEvents()
+    //console.log("this is what is in the store:" , store)
+    clickEvents()
     api.startGame()
     .then(ui.startGameSuccess)
     .catch(ui.startGamefailure)
@@ -123,11 +136,10 @@ const onGetGames = function(event) {
     .catch(ui.getGamesFailure)
 }
 
-
-
  module.exports = {
      onStartGame,
      onMakeMove,
      onStartNewGame,
-     onGetGames
+     onGetGames,
+     clickEvents
  }

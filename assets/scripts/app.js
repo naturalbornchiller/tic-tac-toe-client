@@ -16,20 +16,21 @@ $('#new-game-button').on('submit', gameEvents.onStartGame)
 $('#get-games-button').on('submit', gameEvents.onGetGames) 
 $('#playagainbutton').on('submit', gameEvents.onStartNewGame) 
 
-const clickEvents = function () {
-  $('#0').on('click', () => gameEvents.onMakeMove(event))
-  $('#1').on('click', () => gameEvents.onMakeMove(event))
-  $('#2').on('click', () => gameEvents.onMakeMove(event))
-  $('#3').on('click', () => gameEvents.onMakeMove(event))
-  $('#4').on('click', () => gameEvents.onMakeMove(event))
-  $('#5').on('click', () => gameEvents.onMakeMove(event))
-  $('#6').on('click', () => gameEvents.onMakeMove(event))
-  $('#7').on('click', () => gameEvents.onMakeMove(event))
-  $('#8').on('click', () => gameEvents.onMakeMove(event))
-  }
+//move clickEvents to either store.js or new file (setup.js)
+// const clickEvents = function () {
+//   $('#0').on('click', () => gameEvents.onMakeMove(event))
+//   $('#1').on('click', () => gameEvents.onMakeMove(event))
+//   $('#2').on('click', () => gameEvents.onMakeMove(event))
+//   $('#3').on('click', () => gameEvents.onMakeMove(event))
+//   $('#4').on('click', () => gameEvents.onMakeMove(event))
+//   $('#5').on('click', () => gameEvents.onMakeMove(event))
+//   $('#6').on('click', () => gameEvents.onMakeMove(event))
+//   $('#7').on('click', () => gameEvents.onMakeMove(event))
+//   $('#8').on('click', () => gameEvents.onMakeMove(event))
+//   }
 
-  clickEvents()
-
+  // store.clickEvents()
+  gameEvents.clickEvents()
 //GAME EVENTS----------------------------------------
 
 // $('#0').on('click', () => gameEvents.onMakeMove(event))
