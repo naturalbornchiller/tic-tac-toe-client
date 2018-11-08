@@ -22,6 +22,12 @@ td {
 table {
     align-content: center;
     table-layout: fixed;
+    justify-content: center;
+}
+
+#game-div {
+    width: 100%;
+    justify-content: center;
 }
 
 // form {
