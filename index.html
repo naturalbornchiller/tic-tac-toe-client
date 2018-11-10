@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Tic Tac Toe</title>
+      <title>TICTACTOE</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
-
+      <style>
+        @import url('https://fonts.googleapis.com/css?family=Bungee+Shade');
+        </style>
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
@@ -14,11 +16,11 @@
     
     <body>
 
-      <h1 id="pagetitle">Tic Tac Toe</h1>
+      <h1 id="pagetitle">T I C \|/ T A C \|/ T O E</h1>
       
             <!--Big div for all the forms-->
       <div id="forms">
-      <form id="sign-up" class="border">
+      <form id="sign-up">
         <fieldset>
           <legend>Sign Up!</legend>
           <input type="text" name="credentials[email]" placeholder="Email">
@@ -27,7 +29,8 @@
           <input type="submit" value="Sign Up!">
         </fieldset>
       </form>
-      <form id="sign-in" class="border">
+      <br>
+      <form id="sign-in">
         <fieldset>
           <legend>Sign In</legend>
           <input type="text" name="credentials[email]" placeholder="Email">
@@ -35,7 +38,7 @@
           <input type="submit" value="Sign in">
         </fieldset>
       </form>
-      <form id="change-password" class="border" hidden>
+      <form id="change-password" hidden>
         <fieldset>
           <legend>Change Password</legend>
           <input type="password" name="passwords[old]" placeholder="Old Password">
@@ -43,7 +46,7 @@
           <input type="submit" value="Change Password">
         </fieldset>
       </form> 
-      <form id="sign-out" class="border" hidden>
+      <form id="sign-out" hidden>
         <fieldset>
           <legend>Sign Out</legend>
           <input type="submit" value="Sign out">
@@ -62,6 +65,9 @@
       <form id="get-games-button" hidden>
         <input type="submit" value="Get Past Games">
     </form>
+    <form id="playagainbutton" hidden>
+      <input type="submit" value="Click to Play Again!">
+  </form>
     </div>
     
     <!--Game placeholder div-->
@@ -86,9 +92,7 @@
           </tr>
         </table>
     </div>
-    <form id="playagainbutton" hidden>
-      <input type="submit" value="Click to Play Again!">
-  </form>
+  
     
     </body>
 </html>
