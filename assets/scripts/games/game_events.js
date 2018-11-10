@@ -1,6 +1,6 @@
 const api = require('./api.js')
 const ui = require('./ui.js')
-const store = require('./../store.js')
+//const store = require('./../store.js')
 //const app = require('../app.js')
 //const warehouse = require('../warehouse.js')
 const clickEvents = function () {
@@ -14,6 +14,12 @@ const clickEvents = function () {
     $('#7').on('click', () => onMakeMove(event))
     $('#8').on('click', () => onMakeMove(event))
     }
+
+let currentPlayer = "X"
+let moveMade = false
+let boardArray = []
+let totalsBoardArray = []
+let overOrNot = false
 
 //GAME EVENTS---------------------------------------------------
 const onStartGame = function (event) {
@@ -37,19 +43,27 @@ const onStartNewGame = function (event) {
     .catch(ui.startGamefailure)
 }
 
-let currentPlayer = "X"
-let moveMade = false
-let boardArray = []
-let totalsBoardArray = []
-let overOrNot = false
-
 const gameOver = function (){
     document.getElementById('playagainbutton').hidden = false
 }
 
 const gameEngine = function () {
-      if (totalsBoardArray.length < 9) {
-        if (boardArray[0] === 'O' && boardArray[1] === 'O' && boardArray [2] === 'O' ||
+      //if (totalsBoardArray.length < 9) {
+        if (totalsBoardArray.length >= 9  
+            // boardArray[0] !== boardArray[1] !== boardArray [2] ||
+            // boardArray[3] !== boardArray[4] !== boardArray [5] ||
+            // boardArray[6] !== boardArray[7] !== boardArray [8] ||
+            // boardArray[0] !== boardArray[3] !== boardArray [6] ||
+            // boardArray[1] !== boardArray[4] !== boardArray [7] ||
+            // boardArray[2] !== boardArray[5] !== boardArray [8] ||
+            // boardArray[0] !== boardArray[4] !== boardArray [8] ||
+            // boardArray[2] !== boardArray[4] !== boardArray [6]
+            ) {
+                $('#message').text('TIE GAME...........................')
+                overOrNot = true
+                gameOver ()
+            }
+        else if (boardArray[0] === 'O' && boardArray[1] === 'O' && boardArray [2] === 'O' ||
             boardArray[3] === 'O' && boardArray[4] === 'O' && boardArray [5] === 'O' ||
             boardArray[6] === 'O' && boardArray[7] === 'O' && boardArray [8] === 'O' ||
             boardArray[0] === 'O' && boardArray[3] === 'O' && boardArray [6] === 'O' ||
@@ -58,7 +72,7 @@ const gameEngine = function () {
             boardArray[0] === 'O' && boardArray[4] === 'O' && boardArray [8] === 'O' ||
             boardArray[2] === 'O' && boardArray[4] === 'O' && boardArray [6] === 'O') 
             {
-              $('#message').text('O WINSSSSSSSS!!!!!!!!!!')
+              $('#message').text('O WINSSSSSSSS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
               overOrNot = true
               gameOver()
             }
@@ -71,19 +85,25 @@ const gameEngine = function () {
                  boardArray[0] === 'X' && boardArray[4] === 'X' && boardArray [8] === 'X' ||
                  boardArray[2] === 'X' && boardArray[4] === 'X' && boardArray [6] === 'X') 
             {
-                $('#message').text('X WINSSSSSSSS!!!!!!!!!!')
+                $('#message').text('X WINSSSSSSSS!!!!!!!!!!!!!!!!!!!!!!')
                 overOrNot = true
                 gameOver ()
             }
-        else {
-
-        }
-        } else {
-            $('#message').text('DRAW.')
-            overOrNot = true
-            gameOver ()
-        }
+        // else if (totalsBoardArray.length >= 9 && 
+        // boardArray[0] !== boardArray[1] !== boardArray [2] ||
+        // boardArray[3] !== boardArray[4] !== boardArray [5] ||
+        // boardArray[6] !== boardArray[7] !== boardArray [8] ||
+        // boardArray[0] !== boardArray[3] !== boardArray [6] ||
+        // boardArray[1] !== boardArray[4] !== boardArray [7] ||
+        // boardArray[2] !== boardArray[5] !== boardArray [8] ||
+        // boardArray[0] !== boardArray[4] !== boardArray [8] ||
+        // boardArray[2] !== boardArray[4] !== boardArray [6]) {
+        //     $('#message').text('DRAW.')
+        //     overOrNot = true
+        //     gameOver ()
+        // }
 }
+
 
 const onMakeMove = function(event) { 
      //DEACTIVATE CELLS
@@ -127,6 +147,11 @@ const onMakeMove = function(event) {
        moveMade = false 
     }
     switchPlayers()
+    console.log("current player is " + currentPlayer)
+    console.log("boardArray is " + boardArray)
+    console.log("boardArray.length is " + boardArray.length)
+    console.log("totalsBoardArray is " + totalsBoardArray)
+    console.log("totalsBoardArray.length is " + totalsBoardArray.length)
 }
 
 const onGetGames = function(event) {
