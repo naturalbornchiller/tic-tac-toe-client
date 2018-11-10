@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>TICTACTOE</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style>
+        @import url('https://fonts.googleapis.com/css?family=Bungee+Shade');
+        </style>
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    
+    <body>
+
+      <h1 id="pagetitle">T I C \|/ T A C \|/ T O E</h1>
+      
+            <!--Big div for all the forms-->
+      <div id="forms">
+      <form id="sign-up">
+        <fieldset>
+          <legend>Sign Up!</legend>
+          <input type="text" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+          <input type="submit" value="Sign Up!">
+        </fieldset>
+      </form>
+      <br>
+      <form id="sign-in">
+        <fieldset>
+          <legend>Sign In</legend>
+          <input type="text" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="submit" value="Sign in">
+        </fieldset>
+      </form>
+      <form id="change-password" hidden>
+        <fieldset>
+          <legend>Change Password</legend>
+          <input type="password" name="passwords[old]" placeholder="Old Password">
+          <input type="password" name="passwords[new]" placeholder="New Password">
+          <input type="submit" value="Change Password">
+        </fieldset>
+      </form> 
+      <form id="sign-out" hidden>
+        <fieldset>
+          <legend>Sign Out</legend>
+          <input type="submit" value="Sign out">
+        </fieldset>
+      </form> 
+                <!--forms end here-->
+
+      <br>
+      <div>
+        <p id="message"> </p>
+      </div>
+      <!--Play button-->
+      <form id="new-game-button" hidden>
+          <input type="submit" value="Play!">
+      </form>
+      <form id="get-games-button" hidden>
+        <input type="submit" value="Get Past Games">
+    </form>
+    <form id="playagainbutton" hidden>
+      <input type="submit" value="Click to Play Again!">
+  </form>
+    </div>
+    
+    <!--Game placeholder div-->
+      <div id="game-div">
+
+        <!--Game board itself-->
+        <table id="game-board" hidden>
+          <tr class="row">
+            <td id="0"> </td>
+            <td id="1"> </td>
+            <td id="2"> </td>
+          </tr>
+          <tr class="row">
+            <td id="3"> </td>
+            <td id="4"> </td>
+            <td id="5"> </td>
+          </tr>
+          <tr class="row">
+            <td id="6"> </td>
+            <td id="7"> </td>
+            <td id="8"> </td>
+          </tr>
+        </table>
+    </div>
+  
+    
+    </body>
+</html>
