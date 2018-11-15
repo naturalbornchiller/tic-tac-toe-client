@@ -60,8 +60,8 @@ body {
 }
 
 #forms {
-    margin-left: auto;
-    margin-right: auto;
+    // margin-left: auto;
+    // margin-right: auto;
     font-size: 12px;
     color: rgb(254, 33, 33);
 }
@@ -79,8 +79,10 @@ input {
 #message {
     font-size: 40px;
     color: rgb(156, 244, 80);
-    animation: blinker 3s cubic-bezier(.5, 0, 1, 1) infinite alternate;  
+    animation: blinker 3s cubic-bezier(.5, 0, 1, 1) infinite alternate;
+    width: 200px;  
 }
+
 // td {
 //     font-size: 150px;
 // }

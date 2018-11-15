@@ -2,7 +2,8 @@ const store = require('../store.js')
 
 const signUpSuccess = function (data) {
     $('#message').text('Welcome!')
-    $('#message').addClass('success')    
+    $('#message').addClass('success')  
+    $('#sign-up').hide()  
     console.log('signUpSuccess ran. Data is :', data)
 }
 
@@ -16,6 +17,8 @@ const signInSuccess = function (data) {
     store.user = data.user
     $('#message').text('You are in!')
     $('#message').addClass('success')
+    $('#sign-up').hide()  
+    $('#sign-in').hide()  
     $('#game-board').show()    
     console.log('signInSuccess ran. Data is :', data)
 }
@@ -53,7 +56,7 @@ const signOutFailure = function (error) {
 
 const startGameSuccess = function(data) {
     store.game = data.game 
-    $('#message').text('You are in!')  
+    $('#message').text('Welcome aboard!')  
     console.log('startGameSuccess ran. Data is :', data)
 }
 
@@ -68,10 +71,25 @@ const updateGameSuccess = function(data) {
     console.log('updateGameSuccess ran. Data is :', data)
 }
 
+
 const getGamesSuccess = function (data) {
     store.games = data.games
-    $('#message').text('Here are your past games, as raw data: ' + store.games)
-    console.log('getGamesSuccess ran. Data is :', store.games)
+    let userResults = []
+    if (store.games.length > 0) {
+        store.games.forEach(function (game) {
+            userResults.push(game.cells)
+        }
+     )}
+    
+
+    // const getGames = function () {
+    //     for (i = 0; i < store.games.length; i++) {
+    //        userResults.push(store.games[i].cells)
+    //     }
+    // }
+    //getGames()
+    $('#message').html(`<p style="width:30px">Past games: ${userResults}</p>`)
+    console.log('getGamesSuccess ran. Data is :', userResults)
     //pass store.games info: throw data back at user (would be adequate
     // for this assignment), 
     // or run cells

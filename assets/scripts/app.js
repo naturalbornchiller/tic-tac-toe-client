@@ -30,7 +30,7 @@ $('#playagainbutton').on('submit', gameEvents.onStartNewGame)
 //   }
 
   // store.clickEvents()
-  gameEvents.clickEvents()
+  //gameEvents.clickEvents()
 //GAME EVENTS----------------------------------------
 
 // $('#0').on('click', () => gameEvents.onMakeMove(event))

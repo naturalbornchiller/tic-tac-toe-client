@@ -3,6 +3,14 @@ const ui = require('./ui.js')
 //const store = require('./../store.js')
 //const app = require('../app.js')
 //const warehouse = require('../warehouse.js')
+
+let currentPlayer = "X"
+let moveMade = false
+let boardArray = []
+let totalsBoardArray = []
+let overOrNot = false
+let win = false //helps draw function to work
+
 const clickEvents = function () {
     $('#0').on('click', () => onMakeMove(event))
     $('#1').on('click', () => onMakeMove(event))
@@ -13,18 +21,20 @@ const clickEvents = function () {
     $('#6').on('click', () => onMakeMove(event))
     $('#7').on('click', () => onMakeMove(event))
     $('#8').on('click', () => onMakeMove(event))
+    console.log("SOMETHING!!! FUCK!!!")
+    currentPlayer = "X"
+    moveMade = false
+    boardArray = []
+    totalsBoardArray = []
+    overOrNot = false
+    win = false 
     }
-
-let currentPlayer = "X"
-let moveMade = false
-let boardArray = []
-let totalsBoardArray = []
-let overOrNot = false
 
 //GAME EVENTS---------------------------------------------------
 const onStartGame = function (event) {
     event.preventDefault()
     document.getElementById('game-board').hidden = false
+    clickEvents()
     api.startGame()
     .then(ui.startGameSuccess)
     .catch(ui.startGamefailure)
@@ -33,14 +43,15 @@ const onStartGame = function (event) {
 const onStartNewGame = function (event) {
     event.preventDefault()
     $('td').empty()
-    boardArray = []
-    totalsBoardArray = []
-    currentPlayer = "X"
+    // boardArray = []
+    // totalsBoardArray = []
+    // currentPlayer = "X"
     //console.log("this is what is in the store:" , store)
-    clickEvents()
-    api.startGame()
-    .then(ui.startGameSuccess)
-    .catch(ui.startGamefailure)
+    onStartGame(event)
+    // clickEvents()
+    // api.startGame()
+    // .then(ui.startGameSuccess)
+    // .catch(ui.startGamefailure)
 }
 
 const gameOver = function (){
@@ -49,21 +60,8 @@ const gameOver = function (){
 
 const gameEngine = function () {
       //if (totalsBoardArray.length < 9) {
-        if (totalsBoardArray.length >= 9  
-            // boardArray[0] !== boardArray[1] !== boardArray [2] ||
-            // boardArray[3] !== boardArray[4] !== boardArray [5] ||
-            // boardArray[6] !== boardArray[7] !== boardArray [8] ||
-            // boardArray[0] !== boardArray[3] !== boardArray [6] ||
-            // boardArray[1] !== boardArray[4] !== boardArray [7] ||
-            // boardArray[2] !== boardArray[5] !== boardArray [8] ||
-            // boardArray[0] !== boardArray[4] !== boardArray [8] ||
-            // boardArray[2] !== boardArray[4] !== boardArray [6]
-            ) {
-                $('#message').text('TIE GAME...........................')
-                overOrNot = true
-                gameOver ()
-            }
-        else if (boardArray[0] === 'O' && boardArray[1] === 'O' && boardArray [2] === 'O' ||
+       
+         if (boardArray[0] === 'O' && boardArray[1] === 'O' && boardArray [2] === 'O' ||
             boardArray[3] === 'O' && boardArray[4] === 'O' && boardArray [5] === 'O' ||
             boardArray[6] === 'O' && boardArray[7] === 'O' && boardArray [8] === 'O' ||
             boardArray[0] === 'O' && boardArray[3] === 'O' && boardArray [6] === 'O' ||
@@ -73,10 +71,11 @@ const gameEngine = function () {
             boardArray[2] === 'O' && boardArray[4] === 'O' && boardArray [6] === 'O') 
             {
               $('#message').text('O WINSSSSSSSS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+              win = true
               overOrNot = true
               gameOver()
             }
-        else if (boardArray[0] === 'X' && boardArray[1] === 'X' && boardArray [2] === 'X' ||
+         else if (boardArray[0] === 'X' && boardArray[1] === 'X' && boardArray [2] === 'X' ||
                  boardArray[3] === 'X' && boardArray[4] === 'X' && boardArray [5] === 'X' ||
                  boardArray[6] === 'X' && boardArray[7] === 'X' && boardArray [8] === 'X' ||
                  boardArray[0] === 'X' && boardArray[3] === 'X' && boardArray [6] === 'X' ||
@@ -86,32 +85,41 @@ const gameEngine = function () {
                  boardArray[2] === 'X' && boardArray[4] === 'X' && boardArray [6] === 'X') 
             {
                 $('#message').text('X WINSSSSSSSS!!!!!!!!!!!!!!!!!!!!!!')
+                win = true
                 overOrNot = true
                 gameOver ()
             }
-        // else if (totalsBoardArray.length >= 9 && 
-        // boardArray[0] !== boardArray[1] !== boardArray [2] ||
-        // boardArray[3] !== boardArray[4] !== boardArray [5] ||
-        // boardArray[6] !== boardArray[7] !== boardArray [8] ||
-        // boardArray[0] !== boardArray[3] !== boardArray [6] ||
-        // boardArray[1] !== boardArray[4] !== boardArray [7] ||
-        // boardArray[2] !== boardArray[5] !== boardArray [8] ||
-        // boardArray[0] !== boardArray[4] !== boardArray [8] ||
-        // boardArray[2] !== boardArray[4] !== boardArray [6]) {
-        //     $('#message').text('DRAW.')
-        //     overOrNot = true
-        //     gameOver ()
-        // }
+           else if (totalsBoardArray.length === 9 && win === false) {
+                $('#message').text('TIE GAME...........................')
+                overOrNot = true
+                gameOver ()
+            }
 }
 
+const switchPlayers = function () {
+    if (currentPlayer === "X" && moveMade === true) {
+        currentPlayer = "O"
+    } else if (currentPlayer === "O" && moveMade === true) {
+        currentPlayer = "X"
+    }
+       moveMade = false 
+    }
 
-const onMakeMove = function(event) { 
+const onMakeMove = function(event) { //this is getting called twice 
+    // with each click on the second
+    //game which is also why switchPlayers is getting called twice
+    // could add if here, could make an alreadyRan variable and set to true
+    //or could see if cell has a value and not run if so, return/exit function
+    //
      //DEACTIVATE CELLS
+     if (moveMade === false) {
+     console.log("onMakeMove happened! " + "event.target.id is " + event.target.id)
      $('#' + event.target.id).off()
      
      //UPDATE ARRAYS
      boardArray[event.target.id] = currentPlayer
      totalsBoardArray.push(currentPlayer) 
+     
      
     //UPDATE API
      const data = {
@@ -129,29 +137,27 @@ const onMakeMove = function(event) {
     
     //RUN GAME ENGINE
     gameEngine()    
-    
+   
     //FILL IN BOARD
-    const fillIn = function (event) {
+    // const fillIn = function (event) {
         $('#' + event.target.id).text(currentPlayer)
-    }
-    fillIn(event)
+    // }
+    // fillIn(event)
     
     //SWITCH PLAYERS
     moveMade = true
-    const switchPlayers = function () {
-    if (currentPlayer === "X" && moveMade === true) {
-        currentPlayer = "O"
-    } else if (currentPlayer === "O" && moveMade === true) {
-        currentPlayer = "X"
-    }
-       moveMade = false 
-    }
     switchPlayers()
+    //current -- Emmanuel
+
     console.log("current player is " + currentPlayer)
     console.log("boardArray is " + boardArray)
     console.log("boardArray.length is " + boardArray.length)
     console.log("totalsBoardArray is " + totalsBoardArray)
     console.log("totalsBoardArray.length is " + totalsBoardArray.length)
+    }
+    else {
+        return 
+    }
 }
 
 const onGetGames = function(event) {
